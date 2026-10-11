@@ -1,140 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1020">
-  <title>PCB Study Room</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Promotion Campaign Manager</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">STUDY DASHBOARD</p>
-      <h1>PCB Study Room</h1>
-      <p class="subtitle">Your lectures, progress and study time in one place.</p>
+<header>
+  <div>
+    <p class="eyebrow">RECRUITMENT WORKSPACE</p>
+    <h1>Job Promotion Manager</h1>
+    <p class="sub">Prepare personalized, consent-based job campaigns.</p>
+  </div>
+  <button id="exportContactsBtn" class="secondary">Export contacts backup</button>
+</header>
+<main>
+  <section class="notice">
+    <strong>Send responsibly:</strong> Import only candidates who agreed to receive job updates.
+    This tool prepares and exports drafts; actual delivery must use official platform tools and rules.
+  </section>
+
+  <section class="stats">
+    <article><span>Total contacts</span><strong id="totalCount">0</strong></article>
+    <article><span>WhatsApp opted in</span><strong id="waCount">0</strong></article>
+    <article><span>Instagram opted in</span><strong id="igCount">0</strong></article>
+    <article><span>Unsubscribed</span><strong id="stopCount">0</strong></article>
+  </section>
+
+  <section class="panel">
+    <h2>1. Import candidates</h2>
+    <p class="muted">CSV headers: name, phone, instagram, consent_whatsapp, consent_instagram</p>
+    <div class="row wrap">
+      <label class="file-label">Choose CSV<input id="csvFile" type="file" accept=".csv,text/csv"></label>
+      <button id="downloadSample" class="secondary">Download sample CSV</button>
+      <button id="clearContacts" class="danger">Clear contacts</button>
     </div>
-    <div class="header-actions">
-      <button id="reminderBtn" class="secondary-btn">🔔 Reminder</button>
-      <button id="resetBtn" class="danger-btn">Reset Progress</button>
+    <p id="importStatus" class="status" aria-live="polite"></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Name</th><th>Phone</th><th>Instagram</th><th>WhatsApp opt-in</th><th>Instagram opt-in</th><th>Status</th><th>Action</th></tr></thead>
+        <tbody id="contactsBody"><tr><td colspan="7" class="empty">Import a CSV to begin.</td></tr></tbody>
+      </table>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <section class="dashboard-grid">
-      <div class="stat-card">
-        <span>Lectures completed</span>
-        <strong id="completedCount">0 / 7</strong>
-      </div>
-      <div class="stat-card">
-        <span>Overall progress</span>
-        <strong id="progressPercent">0%</strong>
-      </div>
-      <div class="stat-card">
-        <span>Study time</span>
-        <strong id="studyTime">00:00:00</strong>
-      </div>
-      <div class="stat-card">
-        <span>Current streak</span>
-        <strong id="streakCount">0 days</strong>
-      </div>
-    </section>
+  <section class="panel">
+    <h2>2. Create a job campaign</h2>
+    <div class="form-grid">
+      <label>Job role<input id="role" placeholder="Customer Support Executive"></label>
+      <label>Location<input id="location" placeholder="Kolkata"></label>
+      <label>Salary / range<input id="salary" placeholder="₹18,000–₹25,000/month"></label>
+      <label>Application link<input id="applyLink" type="url" placeholder="https://example.com/apply"></label>
+      <label class="full">Campaign name<input id="campaignName" placeholder="October Customer Support Hiring"></label>
+      <label class="full">Message template
+        <textarea id="template" rows="7">Hi {name}! 👋
 
-    <section class="progress-panel">
-      <div class="progress-heading">
-        <div>
-          <h2>Study Progress</h2>
-          <p id="progressText">Start your first lecture.</p>
-        </div>
-        <span id="progressBadge">0%</span>
-      </div>
-      <div class="progress-track">
-        <div id="progressBar" class="progress-bar"></div>
-      </div>
-    </section>
+We're hiring for {role} in {location}.
+Salary: {salary}
 
-    <section class="content-grid">
-      <div class="player-panel">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">NOW STUDYING</p>
-            <h2 id="currentTitle">Lecture 01</h2>
-          </div>
-          <span id="currentStatus" class="status-badge">Not started</span>
-        </div>
+Interested? Apply here: {apply_link}
 
-        <div class="video-wrap">
-          <video id="videoPlayer" controls preload="metadata">
-            <source id="videoSource" src="videos/lecture-01.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-          <div id="videoPlaceholder" class="video-placeholder">
-            <div class="play-icon">▶</div>
-            <h3>Lecture 01</h3>
-            <p>Place <strong>lecture-01.mp4</strong> inside the <strong>videos</strong> folder.</p>
-          </div>
-        </div>
+Reply STOP if you don't want further job updates.</textarea>
+      </label>
+    </div>
+    <p class="muted">Available placeholders: {name}, {role}, {location}, {salary}, {apply_link}</p>
+    <div class="row wrap">
+      <button id="previewBtn">Generate previews</button>
+      <button id="exportWa" class="secondary">Export WhatsApp opt-in drafts</button>
+      <button id="exportIg" class="secondary">Export Instagram opt-in drafts</button>
+    </div>
+    <p id="campaignStatus" class="status" aria-live="polite"></p>
+  </section>
 
-        <div class="player-footer">
-          <div>
-            <span class="small-label">Lecture progress</span>
-            <div class="mini-track">
-              <div id="lectureProgressBar" class="mini-bar"></div>
-            </div>
-          </div>
-          <span id="lectureProgressText">0%</span>
-        </div>
+  <section class="panel">
+    <h2>3. Review message drafts</h2>
+    <p class="muted">Only opted-in contacts that are not unsubscribed appear in the campaign exports.</p>
+    <div id="previews" class="preview-grid"><p class="empty">Generate previews to review messages here.</p></div>
+  </section>
 
-        <div class="player-controls">
-          <button id="prevBtn" class="secondary-btn">← Previous</button>
-          <button id="completeBtn" class="primary-btn">✓ Mark Complete</button>
-          <button id="nextBtn" class="secondary-btn">Next →</button>
-        </div>
-      </div>
-
-      <aside class="timer-panel">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">FOCUS TIMER</p>
-            <h2>Study Session</h2>
-          </div>
-        </div>
-
-        <div class="timer-display" id="timerDisplay">25:00</div>
-        <p class="timer-mode" id="timerMode">Focus session</p>
-
-        <div class="timer-buttons">
-          <button id="timerStart" class="primary-btn">Start</button>
-          <button id="timerPause" class="secondary-btn">Pause</button>
-          <button id="timerReset" class="secondary-btn">Reset</button>
-        </div>
-
-        <div class="timer-presets">
-          <button data-minutes="25">25 min</button>
-          <button data-minutes="45">45 min</button>
-          <button data-minutes="60">60 min</button>
-        </div>
-
-        <div class="tip-box">
-          <strong>Study tip</strong>
-          <p>Keep distractions away and take a short break after a focused session.</p>
-        </div>
-      </aside>
-    </section>
-
-    <section class="lectures-panel">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">LECTURES</p>
-          <h2>Your Lecture Library</h2>
-        </div>
-        <span id="lectureCountLabel">7 lectures</span>
-      </div>
-      <div id="lectureList" class="lecture-list"></div>
-    </section>
-  </main>
-
-  <div id="toast" class="toast"></div>
-  <script src="script.js"></script>
+  <section class="panel">
+    <h2>Important platform notes</h2>
+    <ul>
+      <li>WhatsApp: use the official <a href="https://business.whatsapp.com/platform" target="_blank" rel="noreferrer">WhatsApp Business Platform</a> and approved templates where required.</li>
+      <li>Instagram: use the official <a href="https://developers.facebook.com/docs/messenger-platform/instagram/" target="_blank" rel="noreferrer">Instagram Messaging API</a>; it does not allow unrestricted DMs to arbitrary usernames.</li>
+      <li>Never upload scraped/purchased contact lists, message people without permission, or keep messaging after STOP.</li>
+    </ul>
+  </section>
+</main>
+<footer>Local-only starter app · Contact data remains in this browser unless you export it.</footer>
+<script src="script.js"></script>
 </body>
 </html>
