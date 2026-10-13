@@ -3,92 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Job Promotion Campaign Manager</title>
+<meta name="theme-color" content="#f5e5ff">
+<title>For Prachii ❤️</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div>
-    <p class="eyebrow">RECRUITMENT WORKSPACE</p>
-    <h1>Job Promotion Manager</h1>
-    <p class="sub">Prepare personalized, consent-based job campaigns.</p>
-  </div>
-  <button id="exportContactsBtn" class="secondary">Export contacts backup</button>
-</header>
-<main>
-  <section class="notice">
-    <strong>Send responsibly:</strong> Import only candidates who agreed to receive job updates.
-    This tool prepares and exports drafts; actual delivery must use official platform tools and rules.
+<div class="floaties" aria-hidden="true"></div>
+<main class="phone">
+  <section class="screen hero" id="home">
+    <audio id="bgMusic" src="song.mp3" autoplay loop preload="auto"></audio>
+    <div class="music-note">🎵 Add your song as <b>song.mp3</b> in this same folder</div>
+    <div class="top-icons"><span>💌</span><button class="sound-btn" id="soundBtn" aria-label="Play music">🎵</button></div>
+    <div class="tiny-heart h1">💙</div><div class="tiny-heart h2">💗</div><div class="tiny-heart h3">✨</div>
+    <div class="bear">🧸<span>I'm<br>Sorry</span></div>
+    <p class="eyebrow">A little note, made with care</p>
+    <h1>Prachii... I Have<br>Something to Say 🥺</h1>
+    <p class="script">I just want a chance to say this properly. ❤️</p>
+    <button class="primary" id="startBtn">Hear me out ❤️</button>
+    <p class="hint">A tiny page, just for you ✨</p>
+    <div class="scroll-mark">⌄</div>
   </section>
 
-  <section class="stats">
-    <article><span>Total contacts</span><strong id="totalCount">0</strong></article>
-    <article><span>WhatsApp opted in</span><strong id="waCount">0</strong></article>
-    <article><span>Instagram opted in</span><strong id="igCount">0</strong></article>
-    <article><span>Unsubscribed</span><strong id="stopCount">0</strong></article>
+  <section class="screen note-screen" id="note1">
+    <div class="sticker">🐻‍❄️🧸</div>
+    <h2>I Know You Matter ❤️</h2>
+    <p class="script">I never want my words or actions to make you feel unimportant.</p>
+    <div class="pill">🌷 You deserve kindness, always 🌷</div>
   </section>
 
-  <section class="panel">
-    <h2>1. Import candidates</h2>
-    <p class="muted">CSV headers: name, phone, instagram, consent_whatsapp, consent_instagram</p>
-    <div class="row wrap">
-      <label class="file-label">Choose CSV<input id="csvFile" type="file" accept=".csv,text/csv"></label>
-      <button id="downloadSample" class="secondary">Download sample CSV</button>
-      <button id="clearContacts" class="danger">Clear contacts</button>
+  <section class="screen note-screen" id="note2">
+    <div class="sticker card-sticker">🥺</div>
+    <h2>You Mean Something Special 💗</h2>
+    <p class="script">I want to do better, not just say it. Little things matter, and so do your feelings.</p>
+    <div class="decor">🩷 ✨ 💙</div>
+  </section>
+
+  <section class="screen note-screen" id="note3">
+    <div class="sticker">🐼</div>
+    <h2>I'm Truly Sorry 🫶</h2>
+    <p class="script">If I ever made your day heavier, I hope I can make it a little brighter again.</p>
+    <div class="pill">No pressure, just honesty 💌</div>
+  </section>
+
+  <section class="screen quote-screen">
+    <div class="quote-card">
+      <h3>Hi Prachii, 💙</h3>
+      <p class="script">Kabhi kabhi words sahi se nahi nikalte, but the feeling behind them is real. I hope this little page makes you smile. 🥹💗</p>
+      <p class="signature">— made just for you ❤️</p>
     </div>
-    <p id="importStatus" class="status" aria-live="polite"></p>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Name</th><th>Phone</th><th>Instagram</th><th>WhatsApp opt-in</th><th>Instagram opt-in</th><th>Status</th><th>Action</th></tr></thead>
-        <tbody id="contactsBody"><tr><td colspan="7" class="empty">Import a CSV to begin.</td></tr></tbody>
-      </table>
-    </div>
+    <div class="cat">🐱</div>
   </section>
 
-  <section class="panel">
-    <h2>2. Create a job campaign</h2>
-    <div class="form-grid">
-      <label>Job role<input id="role" placeholder="Customer Support Executive"></label>
-      <label>Location<input id="location" placeholder="Kolkata"></label>
-      <label>Salary / range<input id="salary" placeholder="₹18,000–₹25,000/month"></label>
-      <label>Application link<input id="applyLink" type="url" placeholder="https://example.com/apply"></label>
-      <label class="full">Campaign name<input id="campaignName" placeholder="October Customer Support Hiring"></label>
-      <label class="full">Message template
-        <textarea id="template" rows="7">Hi {name}! 👋
-
-We're hiring for {role} in {location}.
-Salary: {salary}
-
-Interested? Apply here: {apply_link}
-
-Reply STOP if you don't want further job updates.</textarea>
-      </label>
+  <section class="screen gallery-screen">
+    <p class="eyebrow">A few little things I wanted to say</p>
+    <h2>You're genuinely a whole vibe ✨</h2>
+    <div class="gallery-card">
+      <img src="photos/prachii-01.jpg" alt="Prachii photo one">
+      <p class="photo-letter">Prachii ❤️, sach bolun toh tumhari smile mein ek alag hi sukoon hai. Tumhari ek chhoti si smile bhi kisi normal se din ko special bana sakti hai. I hope tum hamesha khush raho, tumhare face par ye pyaari si smile bani rahe, aur tumhe kabhi apni value bhoolne ki zaroorat na pade. You deserve genuine care, respect, happiness and all the little things that make your heart feel light. 🌷✨</p>
     </div>
-    <p class="muted">Available placeholders: {name}, {role}, {location}, {salary}, {apply_link}</p>
-    <div class="row wrap">
-      <button id="previewBtn">Generate previews</button>
-      <button id="exportWa" class="secondary">Export WhatsApp opt-in drafts</button>
-      <button id="exportIg" class="secondary">Export Instagram opt-in drafts</button>
-    </div>
-    <p id="campaignStatus" class="status" aria-live="polite"></p>
+    <div class="dots">● ○ ○ ○ ○ ○</div>
+    <p class="small">Swipe or tap next to see more 💗</p>
+    <button class="secondary" data-next>Next photo ➜</button>
   </section>
 
-  <section class="panel">
-    <h2>3. Review message drafts</h2>
-    <p class="muted">Only opted-in contacts that are not unsubscribed appear in the campaign exports.</p>
-    <div id="previews" class="preview-grid"><p class="empty">Generate previews to review messages here.</p></div>
+  <section class="screen gallery-screen">
+    <div class="gallery-card">
+      <img src="photos/prachii-02.jpg" alt="Prachii photo two">
+      <p class="photo-letter">Prachii, tum sirf pretty nahi ho, tumhari apni ek sweet si vibe hai jo tumhe alag banati hai. ❤️ I like the little things about you—the way you express yourself, your expressions, your style, and the happiness your pictures carry. I hope life tumhe utni hi warmth de jitni warmth tum apne aas-paas laati ho. Kabhi khud ko kam mat samajhna, because you are special exactly as you are. 💗</p>
+    </div>
+    <div class="dots">○ ● ○ ○ ○ ○</div>
+    <button class="secondary" data-next>Next photo ➜</button>
   </section>
 
-  <section class="panel">
-    <h2>Important platform notes</h2>
-    <ul>
-      <li>WhatsApp: use the official <a href="https://business.whatsapp.com/platform" target="_blank" rel="noreferrer">WhatsApp Business Platform</a> and approved templates where required.</li>
-      <li>Instagram: use the official <a href="https://developers.facebook.com/docs/messenger-platform/instagram/" target="_blank" rel="noreferrer">Instagram Messaging API</a>; it does not allow unrestricted DMs to arbitrary usernames.</li>
-      <li>Never upload scraped/purchased contact lists, message people without permission, or keep messaging after STOP.</li>
-    </ul>
+  <section class="screen gallery-screen">
+    <div class="gallery-card">
+      <img src="photos/prachii-03.jpg" alt="Prachii photo three">
+      <p class="photo-letter">Is picture mein tumhari confidence aur cute si energy dono dikh rahi hain, Prachii 💙. I hope tum apne dreams ke liye hamesha brave raho, apni khushi ko importance do, aur un logon ke saath raho jo tumhari baat dhyaan se sunte hain. Tumhari life mein chhoti-chhoti beautiful memories aayein, tumhare efforts notice hon, aur tumhe har din koi na koi reason mile smile karne ka. 🫶✨</p>
+    </div>
+    <div class="dots">○ ○ ● ○ ○ ○</div>
+    <button class="secondary" data-next>Next photo ➜</button>
+  </section>
+
+  <section class="screen gallery-screen">
+    <div class="gallery-card">
+      <img src="photos/prachii-04.jpg" alt="Prachii photo four">
+      <p class="photo-letter">Tumhara simple sa pose bhi ek memory jaisa lagta hai, aur tumhara style bilkul tumhara apna hai. 🫶 Prachii, I hope tumhe hamesha aise moments milte rahein jahan tum bina kisi tension ke has sako, apni favourite songs sun sako, aur bas apni life enjoy kar sako. You don't need to be perfect to be wonderful; tum jaisi ho, waise hi apni ek alag si shine rakhti ho. 🌸</p>
+    </div>
+    <div class="dots">○ ○ ○ ● ○ ○</div>
+    <button class="secondary" data-next>Next photo ➜</button>
+  </section>
+
+  <section class="screen gallery-screen">
+    <div class="gallery-card">
+      <img src="photos/prachii-05.jpg" alt="Prachii photo five">
+      <p class="photo-letter">Prachii ❤️, tumhari smile ke baare mein jitna bolun utna kam hai, but I hope you know ki tumhari happiness matters. May your days be filled with peace, your favourite music, little surprises, good people, and reasons to feel proud of yourself. Agar kabhi din tough ho, toh yaad rakhna ki ek difficult moment tumhari poori story nahi hota. Keep glowing in your own way, always. 💗🌷</p>
+    </div>
+    <div class="dots">○ ○ ○ ○ ● ○</div>
+    <button class="secondary" data-next>Next photo ➜</button>
+  </section>
+
+  <section class="screen gallery-screen">
+    <div class="gallery-card celeb">
+      <img src="photos/she-wow-trio.png" alt="Iron Man, Shah Rukh Khan and Jungkook say she's wow">
+      <p class="photo-letter">Even your favourites agree: she's WOW! 👑❤️ Aur meri taraf se ek aur baat—Prachii, tumhari value kisi comparison se decide nahi hoti. Tumhari individuality, tumhari smile, tumhari personality aur tumhara apna little world hi tumhe special banata hai. I hope this page reminds you to be gentle with yourself, to laugh a little more, and to collect beautiful memories that make you say, “This was a good day.” ✨💌</p>
+    </div>
+    <div class="dots">○ ○ ○ ○ ○ ●</div>
+    <button class="secondary" data-next>One last thing 💌</button>
+  </section>
+
+  <section class="screen flower-screen">
+    <div class="flower-wrap"><img src="photos/flower.jpg" alt="Red hibiscus flower"></div>
+    <h2>For Prachii ❤️</h2>
+    <p class="script">A flower for someone who brings her own colour into the world. 🌺</p>
+    <div class="final-card">
+      <h3>Can I make you smile today? 🥹</h3>
+      <p>That's all this little page hopes to do. Take your time, and keep being your lovely self.</p>
+      <button class="primary" id="heartBtn">Send a little heart 💗</button>
+      <p id="reply" class="reply" aria-live="polite"></p>
+    </div>
+    <footer>Made with care for Prachii ❤️</footer>
   </section>
 </main>
-<footer>Local-only starter app · Contact data remains in this browser unless you export it.</footer>
 <script src="script.js"></script>
 </body>
 </html>
